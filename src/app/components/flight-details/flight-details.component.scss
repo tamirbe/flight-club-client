@@ -1,0 +1,29 @@
+.flight-details {
+    margin: 16px; // Adds spacing around the component
+}
+
+mat-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+    border-radius: 8px; // Rounded corners
+}
+
+.details-row {
+    display: flex; // Use flexbox for row layout
+    flex-wrap: wrap; // Allows wrapping to next line on smaller screens
+    justify-content: space-between; // Distributes space between items
+    margin: 16px 0; // Adds spacing above and below the row
+}
+
+.detail-item {
+    flex: 1; // Allows items to grow equally
+    min-width: 150px; // Sets a minimum width for responsiveness
+    margin-right: 16px; // Adds spacing between items
+}
+
+.detail-item:last-child {
+    margin-right: 0; // Removes margin from the last item
+}
+
+.mat-mdc-card {
+    background-color: #ffffffcc;
+}

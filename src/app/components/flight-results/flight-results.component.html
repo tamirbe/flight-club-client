@@ -1,0 +1,19 @@
+<div class="all-flights">
+    <mat-card *ngFor="let flight of flights" class="flight-card" (click)="selectFlight(flight)">
+        <mat-card-header>
+            <mat-icon mat-card-avatar>airplane_ticket</mat-icon>
+            <mat-card-title>{{ flight.airline }}</mat-card-title>
+            <mat-card-subtitle>
+                <span class="flight-route">{{ flight.departureCity }} &rarr; {{ flight.destinationCity }}</span>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                <strong>Departure:</strong> {{ flight.departureDate }}<br>
+                <strong>Return:</strong> {{ flight.returnDate }}<br>
+                <strong>Passengers:</strong> {{ flight.passengers }}<br>
+                <strong>Price:</strong> ${{ flight.price }}
+            </p>
+        </mat-card-content>
+    </mat-card>
+</div>

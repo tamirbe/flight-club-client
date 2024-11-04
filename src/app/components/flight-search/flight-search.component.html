@@ -1,0 +1,30 @@
+<div class="search-bar">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Departure City</mat-label>
+            <input matInput formControlName="departureCity" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Destination City</mat-label>
+            <input matInput formControlName="destinationCity" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Departure Date</mat-label>
+            <input matInput type="date" formControlName="departureDate" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Return Date</mat-label>
+            <input matInput type="date" formControlName="returnDate" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Passengers</mat-label>
+            <input matInput type="number" formControlName="passengers" min="1" required />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Search Flights</button>
+    </form>
+</div>

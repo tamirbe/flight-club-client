@@ -15,12 +15,20 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { BookingFormComponent } from '../components/booking-form/booking-form.component';
+import { FlightDetailsComponent } from '../components/flight-details/flight-details.component';
+import { FlightResultsComponent } from '../components/flight-results/flight-results.component';
+import { FlightSearchComponent } from '../components/flight-search/flight-search.component';
 
 
 @NgModule({
     declarations: [
         MainComponent,
-        HomePageComponent
+        HomePageComponent,
+        BookingFormComponent,
+        FlightDetailsComponent,
+        FlightResultsComponent,
+        FlightSearchComponent
     ],
     imports: [
         MainRoutingModule,

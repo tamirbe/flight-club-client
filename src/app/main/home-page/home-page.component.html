@@ -1,1 +1,12 @@
-<p>home-page works!</p>
+<div class="home-page-wrapper">
+    <app-flight-search (search)="onFlightSearch($event)"></app-flight-search>
+    <div class="inside-wrapper">
+        <app-flight-results *ngIf="flights.length > 0" [flights]="this.flights"
+            (flightSelected)="onFlightSelect($event)"></app-flight-results>
+        <div class="inside-inside-wrapper">
+            <app-flight-details *ngIf="selectedFlight" [flight]="selectedFlight"
+                (proceedToBooking)="onProceedToBooking()"></app-flight-details>
+            <app-booking-form style="width: 100%;" *ngIf="bookingFlight" [flight]="selectedFlight"></app-booking-form>
+        </div>
+    </div>
+</div>
