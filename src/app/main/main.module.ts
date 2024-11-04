@@ -8,7 +8,13 @@ import { provideHttpClient } from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common'; //addd
 import { RouterModule } from '@angular/router'; // add
 import { HomePageComponent } from './home-page/home-page.component';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -21,6 +27,13 @@ import { HomePageComponent } from './home-page/home-page.component';
         FormsModule,
         ReactiveFormsModule,
         NgIf,
+        MatInputModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
         CommonModule,
         RouterModule, // add
     ],
