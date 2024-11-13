@@ -1,5 +1,8 @@
 <div class="home-page-wrapper">
     <app-flight-search (search)="onFlightSearch($event)"></app-flight-search>
+    <div class="noData" *ngIf="noData">
+        No flights available with these criteria
+    </div>
     <div class="inside-wrapper">
         <app-flight-results *ngIf="flights.length > 0" [flights]="this.flights"
             (flightSelected)="onFlightSelect($event)"></app-flight-results>

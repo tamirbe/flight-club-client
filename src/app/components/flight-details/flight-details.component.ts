@@ -2,17 +2,15 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 interface Flight {
   airline: string;
+  flightNumber: string;
   departureCity: string;
   destinationCity: string;
-  departureDate: string;
-  returnDate: string;
+  departureDate: Date;
+  returnDate: Date;
   passengers: number;
-  departureTime: string;
-  arrivalTime: string;
-  duration: string;
   price: number;
-  baggageAllowance: string;
 }
+
 
 @Component({
   selector: 'app-flight-details',

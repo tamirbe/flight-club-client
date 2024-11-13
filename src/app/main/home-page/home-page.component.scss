@@ -9,6 +9,16 @@
     background-position: center; // Center the image
     background-repeat: no-repeat; // Prevent image from repeating
 
+    .noData{
+        background-color: #ffffffcc;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        font-size: 22px;
+        font-weight: 600;
+    }
     .inside-wrapper {
         width: 90%;
         display: flex;

@@ -1,17 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 interface Flight {
   airline: string;
+  flightNumber: string;
   departureCity: string;
   destinationCity: string;
-  departureDate: string;
-  returnDate: string;
+  departureDate: Date;
+  returnDate: Date;
   passengers: number;
-  departureTime: string;
-  arrivalTime: string;
-  duration: string;
   price: number;
-  baggageAllowance: string;
 }
 
 @Component({
@@ -20,57 +18,37 @@ interface Flight {
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
+
+
+  constructor(private http: HttpClient) { }
+
   // Explicitly type the flights array with the Flight interface
+  
+  noData = false;
   flights: Flight[] = [];
   selectedFlight: Flight | null = null;  // Holds the flight selected by the user
   bookingFlight: boolean = false;  // Flag to toggle the booking form
+  private apiUrl = 'http://localhost:5000'; 
 
   // This function would handle the search form submission event to load flights
   onFlightSearch(searchData: any) {
-    // Populate flights with mock data (using the Flight interface structure)
-    this.flights = [
-      {
-        airline: 'Airline A',
-        departureCity: searchData.departureCity,
-        destinationCity: searchData.destinationCity,
-        departureDate: searchData.departureDate,
-        returnDate: searchData.returnDate,
-        passengers: searchData.passengers,
-        departureTime: '08:00 AM',
-        arrivalTime: '10:00 AM',
-        duration: '2h',
-        price: 120,
-        baggageAllowance: '15 kg'
-      },
-      {
-        airline: 'Airline B',
-        departureCity: searchData.departureCity,
-        destinationCity: searchData.destinationCity,
-        departureDate: searchData.departureDate,
-        returnDate: searchData.returnDate,
-        passengers: searchData.passengers,
-        departureTime: '01:00 PM',
-        arrivalTime: '03:00 PM',
-        duration: '2h',
-        price: 150,
-        baggageAllowance: '20 kg'
-      },
-      {
-        airline: 'Airline C',
-        departureCity: searchData.departureCity,
-        destinationCity: searchData.destinationCity,
-        departureDate: searchData.departureDate,
-        returnDate: searchData.returnDate,
-        passengers: searchData.passengers,
-        departureTime: '01:00 PM',
-        arrivalTime: '03:00 PM',
-        duration: '2h',
-        price: 190,
-        baggageAllowance: '25 kg'
-      }
-    ];
-    this.selectedFlight = null;  // Reset selected flight
-    this.bookingFlight = false;  // Reset booking flag
+    const url = `${this.apiUrl}/api/flights/search`;
+    this.http.post<Flight[]>(url, searchData)
+      .subscribe(
+        (data) => {
+          if(data.length>0){
+            this.flights = data;
+            this.selectedFlight = null;
+            this.bookingFlight = false;
+          }
+          else{
+            this.noData = true;
+          }
+        },
+        (error) => {
+          console.error('Error fetching flights:', error);
+        }
+      );
   }
 
   // This function is triggered when a flight is selected in the results component

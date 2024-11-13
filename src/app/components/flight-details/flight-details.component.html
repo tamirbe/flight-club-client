@@ -7,19 +7,13 @@
         <mat-card-content>
             <div class="details-row">
                 <div class="detail-item">
-                    <strong>Departure:</strong> {{ flight.departureCity }} at {{ flight.departureTime }}
+                    <strong>Departure:</strong> {{ flight.departureCity }} at {{ flight.departureDate }}
                 </div>
                 <div class="detail-item">
-                    <strong>Arrival:</strong> {{ flight.destinationCity }} at {{ flight.arrivalTime }}
-                </div>
-                <div class="detail-item">
-                    <strong>Duration:</strong> {{ flight.duration }}
+                    <strong>Arrival:</strong> {{ flight.destinationCity }} at {{ flight.returnDate }}
                 </div>
                 <div class="detail-item">
                     <strong>Price:</strong> ${{ flight.price }}
-                </div>
-                <div class="detail-item">
-                    <strong>Baggage Allowance:</strong> {{ flight.baggageAllowance }}
                 </div>
             </div>
         </mat-card-content>
