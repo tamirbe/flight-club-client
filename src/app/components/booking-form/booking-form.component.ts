@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class BookingFormComponent {
   @Input() flight: any;
+  @Output() onBookFlight = new EventEmitter<void>(); 
   bookingForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -19,8 +20,8 @@ export class BookingFormComponent {
   }
 
   onBook() {
-    const bookingData = this.bookingForm.value;
-    console.log('Booking flight with details:', bookingData);
-    // Add booking logic here
+    if (this.bookingForm.valid) {
+      this.onBookFlight.emit(this.bookingForm.value);
+    }
   }
 }

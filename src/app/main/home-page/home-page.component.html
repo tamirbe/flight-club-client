@@ -9,7 +9,7 @@
         <div class="inside-inside-wrapper">
             <app-flight-details *ngIf="selectedFlight" [flight]="selectedFlight"
                 (proceedToBooking)="onProceedToBooking()"></app-flight-details>
-            <app-booking-form style="width: 100%;" *ngIf="bookingFlight" [flight]="selectedFlight"></app-booking-form>
+            <app-booking-form (onBookFlight)="onBooking($event)" style="width: 100%;" *ngIf="bookingFlight" [flight]="selectedFlight"></app-booking-form>
         </div>
     </div>
 </div>

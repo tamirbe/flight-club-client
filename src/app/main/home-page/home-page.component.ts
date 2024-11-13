@@ -61,4 +61,13 @@ export class HomePageComponent {
   onProceedToBooking() {
     this.bookingFlight = true;
   }
+
+  onBooking(bookingData: any){
+    const url = `${this.apiUrl}/api/flights/bookings`;
+    this.http.post(url, bookingData)
+      .subscribe(response => {
+        console.log('Booking successful:', response);
+      }
+      );
+  }
 }
