@@ -1,6 +1,13 @@
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HomePageComponent } from './home-page.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+@Component({
+  selector: 'app-flight-search',
+  template: '<div>Mock Flight Search Component</div>'
+})
+class MockFlightSearchComponent {}
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -8,9 +15,12 @@ describe('HomePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomePageComponent]
-    })
-    .compileComponents();
+      declarations: [
+        HomePageComponent,
+        MockFlightSearchComponent // Mocked component
+      ],
+      imports: [HttpClientTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;

@@ -1,23 +1,27 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { FlightDetailsComponent } from './flight-details.component';
 
 describe('FlightDetailsComponent', () => {
   let component: FlightDetailsComponent;
   let fixture: ComponentFixture<FlightDetailsComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [FlightDetailsComponent]
-    })
-    .compileComponents();
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [FlightDetailsComponent],
+    });
     fixture = TestBed.createComponent(FlightDetailsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.flight = { airline: 'Airline A', flightNumber: 'AA123', price: 200 } as any;
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit proceed to booking event', () => {
+    spyOn(component.proceedToBooking, 'emit');
+
+    component.onBook();
+    expect(component.proceedToBooking.emit).toHaveBeenCalled();
   });
 });
